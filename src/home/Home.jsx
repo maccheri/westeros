@@ -6,28 +6,28 @@ import {
   Col,
   InputGroup,
   InputGroupAddon,
-  InputGroupButtonDropdown,
-  InputGroupDropdown,
   Input,
 } from 'reactstrap';
 import './home.css';
+import Card from '../card/Card';
 
 const Home = () => (
   <Container>
     <h1>Casas de Westeros</h1>
     <Row>
-      <Col xs="6">
+      <Col xs="6" className="input-busca">
         <InputGroup>
-          <Input />
+          <Input placeholder="Buscar por nome..." />
           <InputGroupAddon addonType="append">
             <Button>Buscar</Button>
           </InputGroupAddon>
         </InputGroup>
       </Col>
     </Row>
-    <Row>
-      LISTA AQUI
-    </Row>
+    <Card />
+    <Card />
+    <Card />
+    <Card />
   </Container>
 );
 

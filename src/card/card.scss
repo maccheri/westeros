@@ -1,0 +1,29 @@
+%card-shared {
+  border: 1px solid #cacaca;
+  padding: 15px 20px !important;
+}
+
+
+.house-card {
+  padding: 5px 15px;
+
+  p {
+    margin-bottom: 5px !important;
+  }
+
+  .house-info {
+    @extend %card-shared;
+    h2 {
+      margin-bottom: 15px;
+    }
+  }
+
+  .lord-info {
+    @extend %card-shared;
+    display: flex;
+    .info {
+      align-self: flex-end;
+      flex-direction: column;
+    }
+  }
+}

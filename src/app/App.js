@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './app.css';
 import Loader from '../loader';
 import Home from '../home';
 
-const App = () => {
-  return (
+const App = () => 
+  (
     <Router>
       <div>
         <Loader />
@@ -20,6 +20,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
+
 
 export default App;

@@ -1,0 +1,15 @@
+.house-card .house-info, .house-card .lord-info {
+  border: 1px solid #cacaca;
+  padding: 15px 20px !important; }
+
+.house-card {
+  padding: 5px 15px; }
+  .house-card p {
+    margin-bottom: 5px !important; }
+  .house-card .house-info h2 {
+    margin-bottom: 15px; }
+  .house-card .lord-info {
+    display: flex; }
+    .house-card .lord-info .info {
+      align-self: flex-end;
+      flex-direction: column; }
