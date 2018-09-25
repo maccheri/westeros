@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Loader from '../loader';
 import Home from '../home';
+import Detail from '../detail';
 
 const App = () => 
   (
@@ -12,6 +13,7 @@ const App = () =>
         <div>
           <Switch>
             <Route exact path='/' render={() => <Home />} />
+            <Route path='/detail/:id' render={() => <Detail />} />
             {/* <Route path='/login' render={() => <Login exhibition="login" />} /> */}
             {/* <Route path='/register' render={() => <Login exhibition="register" />} /> */}
             {/* <Route path='*' component={NotFound} /> */}

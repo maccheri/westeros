@@ -5,7 +5,13 @@
 
 
 .house-card {
-  padding: 5px 15px;
+  padding: 10px 15px;
+  cursor: pointer;
+  
+  .row {
+    background-color: #fff;
+    box-shadow: 1px 1px #cacaca;
+  }
 
   p {
     margin-bottom: 5px !important;
@@ -13,6 +19,7 @@
 
   .house-info {
     @extend %card-shared;
+    border-right: none;
     h2 {
       margin-bottom: 15px;
     }

@@ -3,11 +3,17 @@
   padding: 15px 20px !important; }
 
 .house-card {
-  padding: 5px 15px; }
+  padding: 10px 15px;
+  cursor: pointer; }
+  .house-card .row {
+    background-color: #fff;
+    box-shadow: 1px 1px #cacaca; }
   .house-card p {
     margin-bottom: 5px !important; }
-  .house-card .house-info h2 {
-    margin-bottom: 15px; }
+  .house-card .house-info {
+    border-right: none; }
+    .house-card .house-info h2 {
+      margin-bottom: 15px; }
   .house-card .lord-info {
     display: flex; }
     .house-card .lord-info .info {

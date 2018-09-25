@@ -1,0 +1,9 @@
+.description {
+  margin: 30px 0; }
+
+.table {
+  background-color: #fff !important; }
+  .table tr:hover {
+    background-color: #dcebec !important; }
+  .table td {
+    color: #333; }
