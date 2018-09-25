@@ -9,7 +9,7 @@ import {
   Input,
 } from 'reactstrap';
 import './home.css';
-import Card from '../card/Card';
+import Card from '../../components/Card';
 
 const Home = () => (
   <Container>
