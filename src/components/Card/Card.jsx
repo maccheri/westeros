@@ -8,9 +8,9 @@ import {
 } from 'reactstrap';
 import './card.css';
 
-const Card = ({ name, coatOfArms, region, lord }) => (
+const Card = ({ name, coatOfArms, region, lord, id }) => (
 	<Container className="house-card">
-		<Link to="/detail/123" style={{ textDecoration: 'none', color: 'unset' }}>
+		<Link to={`/house/${id}`} style={{ textDecoration: 'none', color: 'unset' }}>
 			<Row>
 				<Col xs="8" className="house-info">
 					<h2>{name}</h2>

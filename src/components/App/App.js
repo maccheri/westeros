@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
 import Loader from '../../containers/Loader';
 import Home from '../../containers/Home';
-import Detail from '../../containers/Detail';
+import House from '../../containers/House';
 import NotFound from '../NotFound';
 
 const App = () => 
@@ -14,7 +14,7 @@ const App = () =>
         <div>
           <Switch>
             <Route exact path='/' render={() => <Home />} />
-            <Route path='/detail/:id' render={() => <Detail />} />
+            <Route path='/house/:id' render={() => <House />} />
             <Route path='*' component={NotFound} />
           </Switch>
         </div>
