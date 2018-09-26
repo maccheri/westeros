@@ -1,5 +1,4 @@
 import axios from 'axios';
-import _ from 'lodash';
 import globalConstants from './../../constants';
 
 export const getSwornMembers = (dispatch, members) => {
