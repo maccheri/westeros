@@ -1,19 +1,28 @@
 import axios from 'axios';
+import _ from 'lodash';
 import globalConstants from './../../constants';
 
-export const getHouses = (dispatch) => {
-  axios.get('https://www.anapioficeandfire.com/api/houses')
+export const getHouses = (dispatch, name) => {
+  // API nao esta filtrando como o esperado irei utilizar .filter na resposta
+  // const queryString = (name) ? `?name=${name}` : '';
+  axios.get(`https://www.anapioficeandfire.com/api/houses`)
     .then(({ data: response, status }) => {
       if(status === 200) {
         let promises = [];
-        response.forEach(house => {
+        let data = response;
+        
+        if (name) {
+          data = data.filter(house => _.includes(house.name.toLowerCase(), name.toLowerCase()))
+        }
+
+        data.forEach(house => {
           if (house.currentLord) {
             promises.push(getCurrentLord(house.currentLord));
           }
         });
         
         Promise.all(promises).then(lordsList => {
-          const housesCompleteInfo = response.map(houseInfo => {
+          const housesCompleteInfo = data.map(houseInfo => {
             const { name, region, coatOfArms, currentLord } = houseInfo;
             const lordInfo = lordsList.filter(lord => lord.url === currentLord)[0];
             const lord = (lordInfo) ?  { name: lordInfo.name, born: lordInfo.born, url: lordInfo.url } : null;

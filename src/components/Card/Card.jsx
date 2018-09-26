@@ -19,7 +19,7 @@ const Card = ({ name, coatOfArms, region, lord }) => (
 				</Col>
 				<Col xs="4" className="lord-info">
 				<div className="info">
-					<p><b>{_.has(lord, 'name') ? lord.name : 'Nenhum Lorde encontrado'}</b></p>
+					<p><b>{_.has(lord, 'name') ? lord.name : 'Senhor da casa não definido no momento'}</b></p>
 					<p>{_.has(lord, 'born') && lord.born}</p>
 				</div>
 				</Col>
