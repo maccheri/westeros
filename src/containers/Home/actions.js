@@ -23,7 +23,7 @@ export const getHouses = (dispatch, name) => {
         
         Promise.all(promises).then(lordsList => {
           const housesCompleteInfo = data.map(houseInfo => {
-            const { name, region, coatOfArms, currentLord, url, swornMembers } = houseInfo;
+            const { name, region, coatOfArms, currentLord, url, swornMembers, words, titles } = houseInfo;
             const lordInfo = lordsList.filter(lord => lord.url === currentLord)[0];
             const lord = (lordInfo) ?  { name: lordInfo.name, born: lordInfo.born, url: lordInfo.url } : null;
             const id = url.split('/').pop();
@@ -35,6 +35,8 @@ export const getHouses = (dispatch, name) => {
               lord,
               id,
               swornMembers,
+              words,
+              titles,
             };
           });
             

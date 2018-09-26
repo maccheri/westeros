@@ -62,6 +62,26 @@ class House extends Component {
     }
   }
 
+  listTitles() {
+    if (!this.state.house.titles) {
+      return null;
+    }
+
+    const compactedTitles = _.compact(this.state.house.titles);
+
+    if (compactedTitles.length > 0) {
+      const titles = compactedTitles.join().split(',').map((title, key) => <li key={`title-${key}`}>{title}</li>);
+      return (
+        <div>
+          <p>Titles:</p>
+          <ul>{titles}</ul>
+        </div>
+      )
+    } else {
+      return null;
+    }
+  }
+
   render () {
     if (this.props.houses.length === 0) {
       this.props.history.push('/');
@@ -75,7 +95,11 @@ class House extends Component {
         <Row className="description">
           <Col>
             <p><b>Info da casa</b></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque non sem porta, dapibus dui a, consectetur tellus. Ut eleifend dictum erat, viverra tristique neque interdum non. Vestibulum congue erat neque, non scelerisque leo malesuada a. In hendrerit hendrerit sapien, ut hendrerit turpis iaculis quis. Fusce dictum nunc lorem, ut blandit tortor laoreet ac. Vestibulum accumsan eleifend urna non gravida. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Proin eget molestie quam.</p>
+            {house.region && <p>Region: {house.region}</p>}
+            {house.coatOfArms && <p>Coat of Arms: {house.coatOfArms}</p>}
+            {house.words && <p>Words: {house.words}</p>}
+            {this.listTitles()}
+            {_.has(house, 'lord.name') && <p>Lord: {house.lord.name}</p>}
           </Col>
         </Row>
         <Row>
