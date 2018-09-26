@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash';
@@ -42,7 +43,7 @@ class House extends Component {
   listSwornMembers() {
     if (_.isEmpty(this.props.members)) {
       return (<tr>
-        <td colspan="3" style={{ 'text-align' : 'center'}}>
+        <td colSpan="3" style={{ 'textAlign' : 'center'}}>
           Nenhum membro foi encontrado.
         </td>
       </tr>);
@@ -129,5 +130,30 @@ const mapDispatchToProps = (dispatch) => (
     },
   }
 )
+
+House.propTypes = {
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
+  houses: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired, 
+    region: PropTypes.string, 
+    coatOfArms: PropTypes.string, 
+    lord: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      born: PropTypes.string,
+    }),
+    id: PropTypes.string.isRequired,
+    swornMembers: PropTypes.array.isRequired,
+    words: PropTypes.string.isRequired,
+    titles: PropTypes.array.isRequired,
+  })).isRequired,
+  members: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    born: PropTypes.string,
+    gender: PropTypes.string.isRequired,
+  })),
+  getSwornMembers: PropTypes.func.isRequired,
+}
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(House));

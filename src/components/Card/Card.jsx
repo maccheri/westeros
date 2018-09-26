@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
 import { 
@@ -27,5 +28,16 @@ const Card = ({ name, coatOfArms, region, lord, id }) => (
 		</Link>
 	</Container>
 );
+
+Card.propTypes = {
+	name: PropTypes.string.isRequired, 
+	region: PropTypes.string, 
+	coatOfArms: PropTypes.string, 
+	lord: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		born: PropTypes.string,
+	}),
+	id: PropTypes.string.isRequired,
+}
 
 export default Card;

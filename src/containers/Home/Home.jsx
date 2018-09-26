@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { 
   Button,
@@ -79,7 +80,6 @@ const mapStateToProps = ({ loading, houses }) => {
   return { loading, houses };
 }
 
-
 const mapDispatchToProps = (dispatch) => (
   {
     getHouses: (name) => {
@@ -88,5 +88,23 @@ const mapDispatchToProps = (dispatch) => (
     },
   }
 )
+
+Home.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  houses: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired, 
+    region: PropTypes.string, 
+    coatOfArms: PropTypes.string, 
+    lord: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      born: PropTypes.string,
+    }),
+    id: PropTypes.string.isRequired,
+    swornMembers: PropTypes.array.isRequired,
+    words: PropTypes.string.isRequired,
+    titles: PropTypes.array.isRequired,
+  })).isRequired,
+  getHouses: PropTypes.func.isRequired,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
