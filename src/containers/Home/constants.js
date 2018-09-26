@@ -1,0 +1,4 @@
+export const GET_HOUSES = 'GET_HOUSES';
+export const GET_HOUSES_SUCCESS = 'GET_HOUSES_SUCCESS';
+export const GET_HOUSES_FAILED = 'GET_HOUSES_FAILED';
+

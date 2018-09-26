@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './app.css';
-import Loader from '../loader';
-import Home from '../home';
-import Detail from '../detail';
+import Loader from '../../containers/Loader';
+import Home from '../../containers/Home';
+import Detail from '../../containers/Detail';
+import NotFound from '../NotFound';
 
 const App = () => 
   (
@@ -14,9 +15,7 @@ const App = () =>
           <Switch>
             <Route exact path='/' render={() => <Home />} />
             <Route path='/detail/:id' render={() => <Detail />} />
-            {/* <Route path='/login' render={() => <Login exhibition="login" />} /> */}
-            {/* <Route path='/register' render={() => <Login exhibition="register" />} /> */}
-            {/* <Route path='*' component={NotFound} /> */}
+            <Route path='*' component={NotFound} />
           </Switch>
         </div>
       </div>

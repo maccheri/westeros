@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { 
   Container, 
   Row, 
@@ -7,7 +8,7 @@ import {
 } from 'reactstrap';
 import './detail.css';
 
-const Home = () => (
+const Detail = () => (
   <Container>
     <h1>House Stark</h1>
     <Row className="description">
@@ -43,4 +44,8 @@ const Home = () => (
   </Container>
 );
 
-export default Home;
+const mapStateToProps = ({ loading, houseDetail }) => {
+  return { loading, houseDetail };
+}
+
+export default connect(mapStateToProps, null)(Detail);
