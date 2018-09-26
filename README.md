@@ -1,6 +1,8 @@
 # Westeros houses
 
-Projeto criado com React Create App
+Projeto criado com React Create App.
+
+Este projeto utiliza a API [https://anapioficeandfire.com/Documentation](https://anapioficeandfire.com/Documentation) como fonte de dados.
 
 ### `npm install`
 
